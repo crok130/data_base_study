@@ -160,7 +160,7 @@
     - 해당 컬럼의 각 행은 서로 다른 고유한 값을 가져야함
     - Null은 가능
 4. Cheack
-    - 해당 속성(컬럼, 열)에서 입력될 수 있는 데이터 범위르 제한
+    - 해당 속성(컬럼, 열)에서 입력될 수 있는 데이터 범위를 제한
     - 조건에 맞족하는 데이터만 입력 가능
 5. Default 제약조건
     - 해당 속성에 대한 기본 값을 설정
@@ -228,4 +228,17 @@ FOREIGN KEY (컬럼명) REFERENCES 참조할테이블명(참조할컬럼명)
     1. CASECADE : 참조된 키 값이 변경(삭제)되면 외래키도 함께 변경(삭제)됨
     2. SET NULL : 참조된 키 값이 변경(삭제)되면 외래키를 'NULL'로 설정
     3. NO ACTION : 참조된 키 값이 변경(삭제)가 안되게 작업을 막음
-    4. SET DEFAULT : 촘조된 키값이 변경(삭제)되면 외래키를 기본값으로 설정
+    4. SET DEFAULT : 참조된 키값이 변경(삭제)되면 외래키를 기본값으로 설정 (MySQL에서는 지원하지 않음)
+    5. RESTRICT : 참조된 키 값이 변경(삭제)될 때 해당 작업을 제한(NO ACTION과 유사, MySQL에서 기본값)
+
+* REVERSE ENGINEERING (역공학)
+    - CREATE TABLE 로 생성된 SQL문을 거꾸로 ER 다이어그램 모델링으로 만들 수 있음.
+    - MySQL WorkBench
+    - 메뉴 - DataBase - ReverseEngineering(Ctrl + R)을 통해 실행
+
+### ALTER 문
+- 데이터베이스 객체(주로 테이블)의 구조를 변경하기 위해 사용
+    ```sql
+        ALTER TABLE 대상테이블명
+        [ADD|DROP|MODIFY|CHANGE|RENAME] [추가 옵션]
+    ```
